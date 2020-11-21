@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2020 at 03:14 PM
+-- Generation Time: Nov 21, 2020 at 04:25 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -154,11 +154,11 @@ CREATE TABLE `auth_users_permissions` (
 
 CREATE TABLE `data_pesanan` (
   `pesanan_id` int(100) NOT NULL,
-  `nomor_invoice` int(200) NOT NULL,
+  `nomor_invoice` varchar(200) NOT NULL,
   `pelanggan_nama` varchar(200) NOT NULL,
   `pelanggan_institusi` varchar(200) NOT NULL,
   `pelanggan_email` varchar(200) NOT NULL,
-  `pelanggan_telepon` int(100) NOT NULL,
+  `pelanggan_telepon` varchar(100) NOT NULL,
   `pelanggan_asal` varchar(200) NOT NULL,
   `pelanggan_permintaan` text NOT NULL,
   `tour_id` int(100) NOT NULL,
@@ -166,8 +166,48 @@ CREATE TABLE `data_pesanan` (
   `quantity` int(100) NOT NULL,
   `dp` tinyint(1) NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
-  `tanggal` date NOT NULL
+  `tanggal` date NOT NULL,
+  `diskon` int(100) DEFAULT NULL,
+  `asuransi` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `data_pesanan`
+--
+
+INSERT INTO `data_pesanan` (`pesanan_id`, `nomor_invoice`, `pelanggan_nama`, `pelanggan_institusi`, `pelanggan_email`, `pelanggan_telepon`, `pelanggan_asal`, `pelanggan_permintaan`, `tour_id`, `total_harga`, `quantity`, `dp`, `status`, `tanggal`, `diskon`, `asuransi`) VALUES
+(24, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'dsfwafwaef', '', 81, 10200000, 12, 1, 1, '2020-11-19', NULL, NULL),
+(25, '2020-11-25', 'Juliansyah', '', 'indofiz@gmail.com', '083175087363', 'wefawef', '', 81, 2000000, 2, 1, 1, '2020-11-25', NULL, NULL),
+(26, '2020-11-25', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'weafwafwaf', '', 81, 4500000, 5, 1, 1, '2020-11-25', NULL, NULL),
+(27, '2020-11-25', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafweaf', '', 81, 4500000, 5, 1, 1, '2020-11-25', NULL, NULL),
+(28, '2020-11-26', 'Alfajri', 'Bithub', 'alfajrihilvi14@gmail.com', '083175087363', 'Merapen', '', 81, 2000000, 2, 1, 1, '2020-11-26', NULL, NULL),
+(29, '2020-11-25', 'Alfajri', 'Bithub', 'alfajrihulvi14@gmail.com', '083175087363', 'merapen', '', 81, 1000000, 1, 1, 1, '2020-11-25', NULL, NULL),
+(30, '2020-11-19', 'Alfajri', 'Bithub', 'alfajrihulvi81@gmail.com', '083175087363', 'merapen', '', 81, 2000000, 2, 0, 0, '2020-11-19', NULL, NULL),
+(31, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'hchxcjhgdcyj', '', 81, 5400000, 6, 1, 1, '2020-11-19', NULL, NULL),
+(32, '2020-11-25', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'jhfvghfgh', '', 81, 2000000, 2, 0, 0, '2020-11-25', NULL, NULL),
+(33, '2020-11-23', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'hfghfghdgfhdfgdfg', '', 81, 4500000, 5, 1, 1, '2020-11-23', NULL, NULL),
+(34, '2020-11-16', 'Alfajri', 'Bithub', 'alfajrihulvi14@gmail.com', '083175087363', 'ggargawg', '', 81, 7500000, 5, 1, 0, '2020-11-16', NULL, NULL),
+(35, '2020-11-16', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewaf', 'fewafa', 81, 1500000, 5, 1, 0, '2020-11-16', 10, 10000),
+(36, '2020-11-16', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'faawef', 'fweafw', 81, 890000, 1, 1, 0, '2020-11-16', 10, 10000),
+(37, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafwefweaf', 'wefawefwaf', 81, 890000, 3, 1, 0, '2020-11-19', 10, 10000),
+(38, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'awfwaf', 'wafwafwf', 81, 1340000, 4, 1, 0, '2020-11-19', 10, 10000),
+(39, '2020-11-20', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafwef', 'wafewefwef', 81, 1340000, 5, 1, 0, '2020-11-20', 10, 10000),
+(40, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafwaef', 'fwaefwefwef', 81, 1790000, 12, 1, 0, '2020-11-19', 10, 10000),
+(41, '2020-11-19', 'fweaf', 'fef', 'indofiz@gmail.com', '083175087363', 'weafweaf', 'fwaefwea', 81, 1790000, 21, 1, 0, '2020-11-19', 10, 10000),
+(42, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fweafwa', 'fwae', 81, 1340000, 5, 1, 0, '2020-11-19', 10, 10000),
+(43, '2020-11-20', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fwaefwef', 'fewfawef', 81, 1340000, 5, 1, 0, '2020-11-20', 10, 10000),
+(44, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafew', 'fewafawef', 81, 1340000, 5, 1, 0, '2020-11-19', 10, 10000),
+(45, '2020-11-20', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafwe', 'fweaf', 81, 1340000, 5, 1, 0, '2020-11-20', 10, 10000),
+(46, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fawefwe', 'fweafweaf', 81, 1340000, 5, 1, 0, '2020-11-19', 10, 10000),
+(47, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'asfwefawe', 'fwaefweaff', 81, 1340000, 5, 1, 0, '2020-11-19', 10, 10000),
+(48, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewaf', 'fweafa', 81, 1340000, 5, 1, 0, '2020-11-19', 10, 10000),
+(49, '2020-11-19', 'Juliansyah', 'efawefeawf', 'indofiz@gmail.com', '083175087363', 'ctc', 'ctcc', 81, 1340000, 5, 0, 0, '2020-11-19', 10, 10000),
+(50, '2020-11-19', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafawef', 'fwefawefwa', 81, 1790000, 8, 1, 0, '2020-11-19', 10, 10000),
+(51, '2020-11-20', 'Alfajri', 'Bithub', 'alfajrihulvi14@gmail.com', '083175087363', 'fweafawe', 'fewafawfe', 81, 1340000, 6, 0, 0, '2020-11-20', 10, 10000),
+(52, '#TOK601', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fwefwe', '', 81, 1340000, 6, 1, 0, '2020-11-21', 10, 10000),
+(53, '#Zru374', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafweafweaf', '', 81, 1790000, 44, 0, 0, '2020-11-26', 10, 10000),
+(54, 'vPf241', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fewafwaf', '', 81, 890000, 3, 0, 0, '2020-11-19', 10, 10000),
+(55, '#GPb026', 'Juliansyah', 'Bithub', 'indofiz@gmail.com', '083175087363', 'fef', '', 81, 1340000, 6, 1, 0, '2020-11-21', 10, 10000);
 
 -- --------------------------------------------------------
 
@@ -233,8 +273,27 @@ CREATE TABLE `harga` (
 --
 
 INSERT INTO `harga` (`harga_id`, `min_orang`, `max_orang`, `harga`, `id_tour`) VALUES
-(250, 0, 0, 0, 81),
-(251, 0, 0, 0, 48);
+(7, 213, 213, 123, 72),
+(8, 32, 323, 12, 73),
+(9, 0, 0, 0, 74),
+(10, 213, 213, 123, 75),
+(11, 1, 7, 1000000, 76),
+(12, 7, 19, 7000000, 76),
+(13, 0, 0, 0, 77),
+(14, 0, 0, 0, 78),
+(242, 0, 0, 0, 79),
+(243, 0, 0, 0, 80),
+(245, 1, 5, 12000000, 48),
+(246, 6, 10, 11000000, 48),
+(247, 11, 15, 10000000, 48),
+(251, 1, 4, 1000000, 82),
+(252, 5, 10, 900000, 82),
+(253, 0, 0, 0, 83),
+(254, 0, 0, 0, 84),
+(263, 0, 0, 0, 85),
+(267, 1, 3, 1000000, 81),
+(268, 4, 6, 1500000, 81),
+(269, 7, 9, 2000000, 81);
 
 -- --------------------------------------------------------
 
@@ -296,18 +355,24 @@ CREATE TABLE `paket_tour` (
   `tour_durasi` int(100) NOT NULL,
   `tour_kategori` int(100) NOT NULL,
   `tour_jadwal` text DEFAULT NULL,
-  `tour_fasilitas` text DEFAULT NULL
+  `tour_fasilitas` text DEFAULT NULL,
+  `tour_diskon` int(100) NOT NULL,
+  `tour_asuransi` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `paket_tour`
 --
 
-INSERT INTO `paket_tour` (`tour_id`, `tour_judul`, `tour_url`, `tour_image`, `tour_destinasi`, `tour_durasi`, `tour_kategori`, `tour_jadwal`, `tour_fasilitas`) VALUES
-(48, 'Tour Belitung Manggar Tanjung', 'tour-belitung-manggar-tanjung', '1603972504_44e6de2deb649abf9083.png', 56, 4, 2, '<ol><li>Ke pantai</li><li>Ke Belitung</li><li>Makan</li><li>Balik</li></ol>', '<ul><li>Handuk</li><li>Sepatu</li><li>Hotel</li><li>Mobil</li><li>Salto</li></ul>'),
-(79, 'Belanje', 'belanje', '1604421186_64cfb840397a2aa6a835.png', 69, 7, 6, '', ''),
-(80, 'Berenang', 'berenang', '1604421212_8d792edbfec2fd9c9f9a.png', 59, 3, 4, '', ''),
-(81, 'Gi nyemak', 'gi-nyemak', '1604421231_66beae820fb469ce6147.png', 57, 3, 3, '', '');
+INSERT INTO `paket_tour` (`tour_id`, `tour_judul`, `tour_url`, `tour_image`, `tour_destinasi`, `tour_durasi`, `tour_kategori`, `tour_jadwal`, `tour_fasilitas`, `tour_diskon`, `tour_asuransi`) VALUES
+(48, 'Tour Belitung Manggar Tanjung', 'tour-belitung-manggar-tanjung', '1603972504_44e6de2deb649abf9083.png', 56, 4, 2, '<ol><li>Ke pantai</li><li>Ke Belitung</li><li>Makan</li><li>Balik</li></ol>', '<ul><li>Handuk</li><li>Sepatu</li><li>Hotel</li><li>Mobil</li><li>Salto</li></ul>', 0, 0),
+(79, 'Belanje', 'belanje', '1604421186_64cfb840397a2aa6a835.png', 69, 7, 6, '', '', 0, 0),
+(80, 'Berenang', 'berenang', '1604421212_8d792edbfec2fd9c9f9a.png', 59, 3, 4, '', '', 0, 0),
+(81, 'Gi nyemak', 'gi-nyemak', '1604421231_66beae820fb469ce6147.png', 57, 3, 3, '', '', 10, 10000),
+(82, 'Merajuk', 'merajuk', '1605347990_554724b2e11d54ae932e.png', 57, 3, 3, '', '', 0, 0),
+(83, 'Merajuk agik', 'merajuk-agik', '1605348036_a3f96139bb41c8286f50.png', 59, 3, 3, '', '', 0, 0),
+(84, 'Merajuk agik 2', 'merajuk-agik-2', '1605348182_ce90f47cb9b34cd1e5a4.png', 57, 7, 6, '<ul><li>fweaf</li><li>fwaefwaef</li><li>ewafwef</li></ul>', '<ul><li>fweafawef</li><li>fwaefwaf</li><li>wefwaf</li></ul>', 0, 0),
+(85, 'Laporan WOi', 'laporan-woi', '1605348234_4c84b3e5ec37f71aaaa8.png', 55, 7, 6, '<ul><li>fewaf</li><li>fewaf</li><li>fweaf</li></ul>', '<ul><li>fewafw</li><li>wefawef</li><li>wfawef</li><li>fwaefwaef</li><li>makan</li><li>salto</li></ul>', 2321, 123213);
 
 -- --------------------------------------------------------
 
@@ -344,7 +409,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(2, 'Juli', 'Ansyah', 'marigo@gmail.com', '$2y$10$5BqhC9yv2R0cf3ZLv.ASouLzhKBTRR3Lp/TARY.fdJyKxpfHHwmm.', '2020-11-05 08:39:02', '0000-00-00 00:00:00');
+(2, 'Marigo', 'Trip', 'marigo@gmail.com', '$2y$10$EJT5.ltmdLqzn4rQgnBlHuosl8SCLml3vjLIGiFiDt4J9L4tqrHb.', '2020-11-12 01:11:43', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -434,8 +499,7 @@ ALTER TABLE `durasi`
 -- Indexes for table `harga`
 --
 ALTER TABLE `harga`
-  ADD PRIMARY KEY (`harga_id`),
-  ADD KEY `id_tour` (`id_tour`);
+  ADD PRIMARY KEY (`harga_id`);
 
 --
 -- Indexes for table `kategori`
@@ -514,7 +578,7 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `data_pesanan`
 --
 ALTER TABLE `data_pesanan`
-  MODIFY `pesanan_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `pesanan_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `destinasi`
@@ -532,7 +596,7 @@ ALTER TABLE `durasi`
 -- AUTO_INCREMENT for table `harga`
 --
 ALTER TABLE `harga`
-  MODIFY `harga_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `harga_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -550,7 +614,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `paket_tour`
 --
 ALTER TABLE `paket_tour`
-  MODIFY `tour_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `tour_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -594,26 +658,6 @@ ALTER TABLE `auth_tokens`
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `data_pesanan`
---
-ALTER TABLE `data_pesanan`
-  ADD CONSTRAINT `data_pesanan_ibfk_1` FOREIGN KEY (`tour_id`) REFERENCES `paket_tour` (`tour_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `harga`
---
-ALTER TABLE `harga`
-  ADD CONSTRAINT `harga_ibfk_1` FOREIGN KEY (`id_tour`) REFERENCES `paket_tour` (`tour_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `paket_tour`
---
-ALTER TABLE `paket_tour`
-  ADD CONSTRAINT `paket_tour_ibfk_1` FOREIGN KEY (`tour_destinasi`) REFERENCES `destinasi` (`destinasi_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `paket_tour_ibfk_2` FOREIGN KEY (`tour_durasi`) REFERENCES `durasi` (`durasi_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `paket_tour_ibfk_3` FOREIGN KEY (`tour_kategori`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
